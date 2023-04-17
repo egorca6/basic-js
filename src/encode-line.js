@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * Given a string, return its encoding version.
@@ -7,14 +7,31 @@ const { NotImplementedError } = require('../extensions/index.js');
  * @return {String}
  *
  * @example
- * For aabbbc should return 2a3bc
- *
+ * For  should return 2a3bc
+ *   npm run test ./test/delete-digit.test
  */
-function encodeLine(/* str */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function encodeLine(str) {
+  let result = "";
+  let count = 1;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == str[i + 1]) {
+      count++;
+    } else {
+      if (count == 1) {
+        result += str[i];
+      } else {
+        result += count + str[i];
+      }
+      count = 1;
+    }
+  }
+  console.log(result);
+  return result;
 }
 
+encodeLine("aabbbc");
+
 module.exports = {
-  encodeLine
+  encodeLine,
 };
