@@ -13,9 +13,22 @@ const { NotImplementedError } = require("../extensions/index.js");
  * npm run test ./test/recursive-depth.test
  */
 class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError("Not implemented");
-    // remove line with error and write your code here
+  calculateDepth(arr) {
+    let count = 1;
+    //   console.log(Array.isArray(arr[0]));
+    //   console.log("Длина " + arr.length);
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        const depth = 1 + this.calculateDepth(arr[i]);
+        // console.log("Глубина = " + depth);
+        if (depth > count) {
+          count = depth;
+        }
+      }
+      console.log(arr[i]);
+    }
+    // console.log("Счетчик=  " + count);
+    return count;
   }
 }
 
