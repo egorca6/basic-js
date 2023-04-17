@@ -26,11 +26,9 @@ function encodeLine(str) {
       count = 1;
     }
   }
-  console.log(result);
+  // console.log(result);
   return result;
 }
-
-encodeLine("aabbbc");
 
 module.exports = {
   encodeLine,
